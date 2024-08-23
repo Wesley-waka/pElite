@@ -2,16 +2,17 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from 'next/script';
 import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
-import {Footer} from '@/app/components'
+import { Footer } from '@/app/components'
 // import Head from "next/head";
 // const inter = Inter({ subsets: ["latin"] });
 import { Roboto } from 'next/font/google'
- 
+import PrelineScript from "./components/PrelineScript";
+
 const roboto = Roboto({
   weight: '300',
   subsets: ['latin'],
 })
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 })
@@ -121,27 +122,27 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <GoogleAnalyticsScript/>
+      <GoogleAnalyticsScript />
       <link rel="icon" type="image/svg+xml" href="/logoP.png"></link>
       <link rel='dns-prefetch' href='//www.google.com' />
-    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+      <link rel='dns-prefetch' href='//fonts.googleapis.com' />
       <link rel="alternate" type="application/rss+xml" title="Elite Treat For Pets &raquo; Feed" href="https://rss.app/feeds/SRjwJEauF0ZESkkJ.xml" />
-    <Script
-          id="my-script"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
-        />
-        <Script id="google-tag-manager" strategy="afterInteractive" dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      <Script
+        id="my-script"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrgData) }}
+      />
+      <Script id="google-tag-manager" strategy="afterInteractive" dangerouslySetInnerHTML={{
+        __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-57NWNHT8');`,
-          }}/>
-          
+      }} />
+
       <body className={roboto.className}>
-      {children}
-      <Script 
+        {children}
+        <Script
           strategy="lazyOnload"
           src="https://embed.tawk.to/65dc7ab79131ed19d971b513/1hnijunq3"
           charset="UTF-8"
@@ -149,13 +150,14 @@ export default function RootLayout({ children }) {
         />
         <noscript>
           <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57NWNHT8"
-          height="0" width="0" style={{
-            display:"none",
-            visibility:"hidden"
-          }}></iframe>
+            height="0" width="0" style={{
+              display: "none",
+              visibility: "hidden"
+            }}></iframe>
         </noscript>
-      <Footer/>
+        <Footer />
       </body>
+      <PrelineScript />
     </html>
   );
 };

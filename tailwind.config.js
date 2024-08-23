@@ -4,6 +4,7 @@ const config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './node_modules/preline/preline.js',
   ],
   theme: {
     extend: {
@@ -25,18 +26,20 @@ const config = {
       lineHeight: {
         '7xl': '4.5rem',
         '9xl': '4rem',
-        '8xl':'2.9rem'
+        '8xl': '2.9rem'
       },
       fontFamily: {
         'playfair_display': ['Playfair Display', 'serif'],
         'oswald': ['Oswald', 'sans-serif'], // The name 'oswald' is what you'll use in your class
         'gilroy': ['Gilroy']
       },
-      margin:{
+      margin: {
         '7xl': '36rem'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('preline/plugin'),
+  ],
 };
 export default config;
